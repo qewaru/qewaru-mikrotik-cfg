@@ -72,17 +72,17 @@ The switch configuration can be found in `switch-cfg.rsc`. Key elements:
 ## How to Use
 
 1. **Router Configuration:**
-   - Upload `router-config.rsc` to the Mikrotik router.
+   - Upload `router-cfg.rsc` to the Mikrotik router.
    - Import the configuration via terminal:
      ```bash
-     /import file=router-config.rsc
+     /import file=router-cfg.rsc
      ```
 
 2. **Switch Configuration:**
-   - Upload `switch-config.rsc` to the Mikrotik switch.
+   - Upload `switch-cfg.rsc` to the Mikrotik switch.
    - Import the configuration via terminal:
      ```bash
-     /import file=switch-config.rsc
+     /import file=switch-cfg.rsc
      ```
 
 
