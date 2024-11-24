@@ -1,7 +1,8 @@
 
-# **MikroTik Router/Switch VLAN configuration**
+# **MikroTik Router/Switch configuration**
 
-This repository contains the config files for a MikroTik hAP ax3 router and Mikrotik CRS326-24G-2S+ switch. The setup is designed to create a basic VLAN-based network with management and default VLANs and Wi-Fi integration.
+This repository contains the config files for a MikroTik hAP ax3 router and Mikrotik CRS326-24G-2S+ switch. 
+The setup is designed to create a basic VLAN-based network with management and default VLANs and Wi-Fi integration as well as VPN server support.
 
 ---
 
@@ -30,6 +31,10 @@ This repository contains the config files for a MikroTik hAP ax3 router and Mikr
 - Configure two Wi-Fi networks with secure protocols (`WPA2-PSK` and `WPA3-PSK`):
   - **5GHz Wi-Fi**
   - **2.4GHz Wi-Fi**
+ 
+### VPN Server
+- Configure basic VPN server with access to the internet.
+> **Note:** Users will be located in **VLAN 10** 
 
 ---
 
@@ -49,8 +54,9 @@ The router configuration can be found in `router-cfg.rsc`. Key elements:
   - Separate SSIDs for 5 GHz and 2.4 GHz bands with WPA2/WPA3 encryption.
 - **Emergency Port:** 
   - `ether5` is untagged and reserved for fallback access.
-
-
+- **VPN Server:**
+   - **IP Pool:** `10.0.0.0/24`
+   - **VLAN Location:** VLAN-10
 
 ---
 
@@ -77,6 +83,7 @@ The switch configuration can be found in `switch-cfg.rsc`. Key elements:
      ```bash
      /import file=router-cfg.rsc
      ```
+   > Additional: Import the configuration for VPN server from file `vpn-server.rsc`
 
 2. **Switch Configuration:**
    - Upload `switch-cfg.rsc` to the Mikrotik switch.
@@ -84,6 +91,7 @@ The switch configuration can be found in `switch-cfg.rsc`. Key elements:
      ```bash
      /import file=switch-cfg.rsc
      ```
+
 
 
 3. **Adjust as Needed:**
