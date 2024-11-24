@@ -145,6 +145,13 @@ set [ find default-name=wifi2 ] channel.band=2ghz-ax configuration.country=Latvi
 # Adding Base VLAN IP range to the "allow-me" list
 /ip firewall address-list add address=192.168.1.0/24 list=allow-me
 
+# Fasttrack for high-speed connections
+/ip firewall filter add action=fasttrack-connection chain=forward connection-state=established,related hw-offload=yes
+/ip firewall mangle
+add action=accept chain=prerouting connection-state=established,related
+add action=accept chain=forward connection-state=established,related
+add action=accept chain=postrouting connection-state=established,related
+
 # Filtering
 /ip firewall filter
 ## Input
