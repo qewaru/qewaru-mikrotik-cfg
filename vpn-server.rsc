@@ -9,7 +9,7 @@
 #		 Preparations		    #
 #############################################
 
-# There is 2 ways to connect the user:
+# There are 2 ways to connect the user:
 ## With another MikroTik router on user end
 ## With WireGuard client app
 
